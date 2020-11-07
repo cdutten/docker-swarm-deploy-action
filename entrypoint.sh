@@ -28,6 +28,7 @@ if [ ${INPUT_REMOTE_HOST#"ssh://"} != "$INPUT_REMOTE_HOST" ]; then
     printf '%s' "$INPUT_SSH_PRIVATE_KEY" > "$HOME/.ssh/docker"
     chmod 600 "$HOME/.ssh/docker"
     eval $(ssh-agent)
+    ls -la $HOME/.ssh/
     ssh-add "$HOME/.ssh/docker"
 
     # Add public key to known hosts.
