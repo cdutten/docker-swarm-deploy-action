@@ -6,6 +6,9 @@ if [ -z "$INPUT_REMOTE_HOST" ]; then
     exit 1
 fi
 
+openssl rand -base64 14 > mysql_password
+openssl rand -base64 14 > mysql_user
+
 # Extra handling for SSH-based connections.
 if [ ${INPUT_REMOTE_HOST#"ssh://"} != "$INPUT_REMOTE_HOST" ]; then
     SSH_HOST=${INPUT_REMOTE_HOST#"ssh://"}
