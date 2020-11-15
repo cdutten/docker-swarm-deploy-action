@@ -6,10 +6,7 @@ if [ -z "$INPUT_REMOTE_HOST" ]; then
     exit 1
 fi
 
-sudo apt update
-sudo apt install build-essential checkinstall zlib1g-dev -y
-openssl rand -base64 14 > mysql_password
-openssl rand -base64 14 > mysql_user
+apt update && apt install build-essential checkinstall zlib1g-dev -y && openssl rand -base64 14 > mysql_password && openssl rand -base64 14 > mysql_user
 
 # Extra handling for SSH-based connections.
 if [ ${INPUT_REMOTE_HOST#"ssh://"} != "$INPUT_REMOTE_HOST" ]; then
