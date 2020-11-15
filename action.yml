@@ -11,6 +11,12 @@ inputs:
   ssh_private_key:
     description: SSH private key to use to connect
     required: false
+  mysql_password:
+    description: password to set for mysql
+    required: false
+  mysql_user:
+    description: user to set for mysql
+    required: false
 runs:
   using: docker
   image: Dockerfile
